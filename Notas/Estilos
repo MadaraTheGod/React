@@ -1,0 +1,5 @@
+Se pueden definir estilos de dos formas 
+	1- Definir una hoja de estilos; SIrve para darle el mismo estilo a todos componentes
+	2- Estilos en linea; Utiliza el atributo style y se hace para cada uno de los componentes
+
+

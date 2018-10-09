@@ -1,0 +1,41 @@
+{
+    "categorias": [
+        {
+            "id": 1,
+            "titple": "Libros que ya lei",
+            "lista": [
+                {
+                    "id": 1,
+                    "title": "1998" ,
+                    "pag": 324
+                },
+                {
+                    "id": 2,
+                    "title": "Juego de Tronos",
+                    "pag": 589
+                },
+                {
+                    "id": 3,
+                    "title": "La Tienda",
+                    "pag": 987
+                }
+            ]
+    },
+    {
+        "id": 2,
+        "title": "Por leer",
+        "lista": [
+            {
+                "id": 1,
+                "title": "Aztecas",
+                "pag": 1245
+            },
+            {
+                "id": 2,
+                "title": "Cancion de hielo y fuego",
+                "pag": 1874
+            }
+        ]
+    }
+    ]
+}
