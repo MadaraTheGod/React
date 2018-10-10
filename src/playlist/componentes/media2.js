@@ -4,7 +4,7 @@ import './media.css'
 import Select from 'react-select'
 
 //Select Opcion 1
-const mejoresAnimes = [
+const opcAnimes = [
     {valie: 'onepiece', label: 'One Piece' },
     {value:"naruto", label: "Naruto",
     {value:"hunterxhunter"}, label: "Hunter X Hunter"
@@ -15,7 +15,7 @@ class Media extends Component {
     state = {
         author: "Juan Carlos",
         newImage: true,
-        selectOption: null
+        selectedOption: null
     }
 
     handleClick = (event) => {
@@ -23,39 +23,58 @@ class Media extends Component {
             console.log('true');
             this.setState{
                 author: "Carlos Soto",
-                image: "'./imagenes/covers/logoBatman1.jpg",
+                image: "./imagenes/covers/op5-dark.jpg",
                 newImage: false
             }
         }
         else {
             console.log('false');
             this.setState{
-                author: "Juan Carlos"
-                image: "./imagenes/covers/batman-new.jpg",
+                author: "Juan Carlos",
+                image: "./imagenes/covers/op5-light.png",
                 newImage: true
             }
         }
     }
 
-handleChangeSelect = (selectedOption) => {
-    this.setState({selectOption: selectedOption})
-    console.log(`Opc: ${selectOption}`);
-}
+    handleChangeSelect = (selectedOption) => {
+        this.setState({selectedOption})
+        console.log(`Opc: ${selectOption}`);
+    }
 
-render() {
-    return(
-        <div className="Media" onCclick{this.handleClick}>
-            <div className='Media-cover'>
-                <img
-                    className="Media-cover"
-                    src={this.stateimage}
-                />
+    render() {
+        return(
+            <div className="Media" onClick{this.handleClick}>
+                <div className='Media-cover'>
+                    <img
+                        className="Media-cover"
+                        src={this.state.image}
+                        alt=''
+                        width={260}
+                        height={160}
+                        border='1px solid red'
+                    />
+                    <h3 className='Media-title'>{this.props.title}</h3>
+                    <p className='Media-author'>{this.props.author}</p>
+
+                    <Select
+                        value={this.state.selectedOption}
+                        onChange={this.handleChangeSelect}
+                        options={opcAnimes}
+                    />
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 
+Media.propsTypes = {
+    cover: PropTypes.string,
+    title: PropTypes.sting.isRequired,
+    author: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(['video','audio'])
 }
 
+export default Media
 //Select Opcion 2

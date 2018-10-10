@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 //Cambiamos el diseno que tenemos en Styles de Media por la config de media.css
 import PropTypes from 'prop-types';
 import './media.css'
@@ -25,9 +25,13 @@ options = optionsDC
 	// Puro
 	// Estado
 
-//Ejemplo de un componente puro
+//Ejemplo de un componente de estados
+//class Media extends React.Component {
 
-class Media extends React.Component {
+//Modificamos el componente para hacerlo uno puro, para lo cual necesitamos importar PureComponent de react
+// La diferencia con un componente de estado, es que el pure ya tiene un shoudComponentUpdate asignado, por lo
+// no redenderisida cuando los componen no han cambiado.
+class Media extends PureComponent {
 	// No es necesario crear un constructor para pasar el contexto ahandleCLick si utilizamos arrow function
 
 
@@ -54,9 +58,11 @@ class Media extends React.Component {
 	// el cual permite tener contenido dinámico
 	// Para trabajar con este state se hace lo sig (ECMAScript7)
 	state = {
+        title: this.props.title,
 		author: 'Juan Carlos Gutierrez',
 		newImage: true,
-		selectedOption: null
+		selectedOption: null,
+        image: this.props.cover
 	}
 
 	// Creamos la funcion handleClick como una ArrowFunction (ECMAScript7)
@@ -66,16 +72,16 @@ class Media extends React.Component {
 			console.log('true')
 			this.setState({
 				author: 'Ricardo Celis',
-				image: './imagenes/covers/logoBatman1.jpg',
-				newImage: false,
+				image: './images/covers/op5-dark.jpg',
+				newImage: false
 			})
 		}
 		else {
 			console.log('false')
 			this.setState({
 				author: 'Juan Carlos Gutierrez',
-				image: './imagenes/covers/batman-new.jpg',
-				newImage: true,
+				image: './images/covers/op5-light.png',
+				newImage: true
 			})
 		}
 	}
@@ -90,6 +96,10 @@ class Media extends React.Component {
 		this.props.onChange(value)
 	}
 
+    showOri = () => {
+        this.setState({image: this.props.cover})
+    }
+
 	render() {
 		//Ya no se necesita ahora empleamos un media.css
 		/*
@@ -103,25 +113,23 @@ class Media extends React.Component {
 		}*/
 
 		return (
-			<div className="Media" onClick={this.handleClick}>
+			<div className="Media" >
 				<div className='Media-cover'>
 					<img
 						className='Media-cover'
+                        onClick={this.handleClick}
 						src={this.state.image}
 						alt=''
-						width={260}
+						width={240}
 						height={160}
 						border= '1px solid red'
 					/>
-					<h3 className='Media-title'>{this.props.title}</h3>
-					<p className='Media-author'>{this.props.author}</p>
+					<h3 className='Media-title'>{this.state.title}</h3>
+					<p className='Media-author'>{this.state.author}</p>
 
 
-					<Select
-				        value={this.state.selectedOption}
-				        onChange={this.handleChangeSelect}
-				        options={options}
-				      />
+
+                      <button type='button' onClick={this.showOri}>Show Ori</button>
 				</div>
 			</div>
 		)
