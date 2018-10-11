@@ -11,7 +11,6 @@ import libros from './src/libros.json'
 // Renderizamos un mensaje en el explorador
 // ReactDOM.render(lo que voy a renderizar, donde lo hare)
 
-
 const app = document.getElementById('app')
 const saludo = <h1>Hola mundote</h1>;
 

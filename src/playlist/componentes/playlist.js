@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import Media from './media'
+import Play from '../../Icons/components/play.js'
+import Pause from '../../Icons/components/pause'
+import FullScreen from  '../../Icons/components/full_screen'
+import Volume from '../../Icons/components/volume'
+
 import './playlist.css';
 
 
@@ -40,23 +45,44 @@ function Playlist(props) {
 		const playlist_regue = props.data.categories[2].playlist
 		const playlists = [playlist_destacados, playlist_programar, playlist_regue]
 		return (
-			<div>
-			{
-				playlists.map((categorie) => {
-					console.log(categorie);
-					return(
-						<div className='Playlist'>
-						{
-							categorie.map((item) => {
-								return <Media {...item} key={item.id} />
-							})
-						}
-						</div>)
-				})
-			}
-			</div>
-		)
+				<div>
+				<Play
+					color='red'
+					size={50}
+				/>
 
+				<Pause
+					color='red'
+					size={50}
+				/>
+
+				<FullScreen
+					color='blue'
+					size={50}
+				/>
+
+				<Volume
+					color='blue'
+					size={50}
+				/>
+
+
+				{
+					playlists.map((categorie) => {
+						console.log(categorie);
+						return(
+							<div className='Playlist'>
+							{
+								categorie.map((item) => {
+									return <Media {...item} key={item.id} />
+								})
+							}
+							</div>
+						)
+					})
+				}
+				</div>
+				)
 }
 
 export default Playlist
