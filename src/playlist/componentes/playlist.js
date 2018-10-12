@@ -66,21 +66,29 @@ function Playlist(props) {
 					size={50}
 				/>
 
-
-				{
-					playlists.map((categorie) => {
-						console.log(categorie);
-						return(
-							<div className='Playlist'>
+				<div className='Playlist'>
 							{
-								categorie.map((item) => {
+								playlist.map((item) => {
 									return <Media {...item} key={item.id} />
 								})
 							}
-							</div>
-						)
-					})
-				}
+				</div>
+
+				//
+				// {
+				// 	playlists.map((categorie) => {
+				// 		console.log(categorie);
+				// 		return(
+				// 			<div className='Playlist'>
+				// 			{
+				// 				categorie.map((item) => {
+				// 					return <Media {...item} key={item.id} />
+				// 				})
+				// 			}
+				// 			</div>
+				// 		)
+				// 	})
+				// }
 				</div>
 				)
 }

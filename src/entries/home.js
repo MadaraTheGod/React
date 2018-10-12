@@ -3,10 +3,11 @@ import React, { Component } from 'react'
 import { render } from 'react-dom'
 //importamos un componente
 //Siempre debemos importarlo con la primera letra en mayuscula
-import Playlist from './src/playlist/componentes/playlist'
-import Custom_Media from './src/playlist/componentes/custom_media'
-import data from './src/api.json'
-import libros from './src/libros.json'
+// import Playlist from './src/playlist/componentes/playlist'
+// import Custom_Media from './src/playlist/componentes/custom_media'
+// import data from './src/api.json'
+//import libros from './src/libros.json'
+import Home from '../pages/containers/home'
 
 // Renderizamos un mensaje en el explorador
 // ReactDOM.render(lo que voy a renderizar, donde lo hare)
@@ -14,5 +15,5 @@ import libros from './src/libros.json'
 const app = document.getElementById('app')
 const saludo = <h1>Hola mundote</h1>;
 
-render(<Playlist data={data} libros={libros}/>, app)
+render(<Home />, app)
 //render(<Custom_Media('Titulote', '') />, app)

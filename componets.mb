@@ -1,0 +1,14 @@
+Platzi-Video <3
+
+Webpack nos pide un entry point, esta es una mini resea de como iria la jerararquia de los componentes
+============
+home - entry point para webpack
+
+    Home - pagina / (container|smart)
+    -> <!-- Layout - UI -->
+        -> Related - UI
+            -> Category - UI
+                -> Playlist - UI
+                    -> Media -UI / Pure
+        -> Search / (container|smart)
+        -> Modals - (container|smart)
