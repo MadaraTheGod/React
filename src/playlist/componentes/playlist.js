@@ -7,7 +7,6 @@ import Volume from '../../Icons/components/volume'
 
 import './playlist.css';
 
-
 //Cambiamos el componente por uno funcional
 /*class Playlist extends Component {
 	render() {
@@ -38,57 +37,13 @@ import './playlist.css';
 }*/
 
 function Playlist(props) {
-		console.log(props.data)
-		console.log(props.libros);
-		const playlist_destacados = props.data.categories[0].playlist
-		const playlist_programar = props.data.categories[1].playlist
-		const playlist_regue = props.data.categories[2].playlist
-		const playlists = [playlist_destacados, playlist_programar, playlist_regue]
 		return (
-				<div>
-				<Play
-					color='red'
-					size={50}
-				/>
-
-				<Pause
-					color='red'
-					size={50}
-				/>
-
-				<FullScreen
-					color='blue'
-					size={50}
-				/>
-
-				<Volume
-					color='blue'
-					size={50}
-				/>
-
 				<div className='Playlist'>
 							{
-								playlist.map((item) => {
+								props.playlist.map((item) => {
 									return <Media {...item} key={item.id} />
 								})
 							}
-				</div>
-
-				//
-				// {
-				// 	playlists.map((categorie) => {
-				// 		console.log(categorie);
-				// 		return(
-				// 			<div className='Playlist'>
-				// 			{
-				// 				categorie.map((item) => {
-				// 					return <Media {...item} key={item.id} />
-				// 				})
-				// 			}
-				// 			</div>
-				// 		)
-				// 	})
-				// }
 				</div>
 				)
 }

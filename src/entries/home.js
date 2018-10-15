@@ -6,8 +6,8 @@ import { render } from 'react-dom'
 // import Playlist from './src/playlist/componentes/playlist'
 // import Custom_Media from './src/playlist/componentes/custom_media'
 // import data from './src/api.json'
-//import libros from './src/libros.json'
 import Home from '../pages/containers/home'
+import data from '../api.json'
 
 // Renderizamos un mensaje en el explorador
 // ReactDOM.render(lo que voy a renderizar, donde lo hare)
@@ -15,5 +15,5 @@ import Home from '../pages/containers/home'
 const app = document.getElementById('app')
 const saludo = <h1>Hola mundote</h1>;
 
-render(<Home />, app)
+render(<Home data={data}/>, app)
 //render(<Custom_Media('Titulote', '') />, app)

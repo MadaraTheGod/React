@@ -1,9 +1,16 @@
 import React from 'react'
-import Category  from '.Category.js'
+import Category  from './category'
 
 function Categories(props) {
     return(
-        <Category {...props}/>
+      <div>
+      {
+        props.categories.map((item) => {
+          return <Category key={item.id} {...item} />
+        })
+      }
+      </div>
+
     )
 }
 
