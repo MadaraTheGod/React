@@ -12,8 +12,8 @@ import data from '../api.json'
 // Renderizamos un mensaje en el explorador
 // ReactDOM.render(lo que voy a renderizar, donde lo hare)
 
-const app = document.getElementById('app')
+const homeContainer = document.getElementById('home-container')
 const saludo = <h1>Hola mundote</h1>;
 
-render(<Home data={data}/>, app)
+render(<Home data={data}/>, homeContainer)
 //render(<Custom_Media('Titulote', '') />, app)
